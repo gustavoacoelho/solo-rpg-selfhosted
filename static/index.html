@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mesa</title>
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div id="login" class="login">
+  <form id="login-form">
+    <h1>Mesa</h1>
+    <input type="password" id="senha" placeholder="senha" autocomplete="current-password" autofocus>
+    <button type="submit">entrar</button>
+    <p id="login-erro" class="erro" hidden></p>
+  </form>
+</div>
+
+<div id="app" hidden>
+  <header>
+    <span class="titulo" id="titulo">Campanha solo</span>
+    <button class="stats" id="stats" title="ver uso da sessão"></button>
+    <button id="btn-docs" class="ghost" title="ver e editar os documentos da campanha">documentos</button>
+    <button id="btn-consolidar" class="ghost" title="atualizar o cânone com os turnos novos">consolidar</button>
+  </header>
+
+  <div id="painel-uso" class="painel-uso" hidden>
+    <section>
+      <div class="uso-cab"><h3>Prompt do turno</h3><span id="ctx-valor"></span></div>
+      <div class="barra"><div id="ctx-barra" class="preenche"></div></div>
+      <p id="ctx-detalhe" class="uso-nota"></p>
+    </section>
+    <section>
+      <div class="uso-cab"><h3>Limites do plano</h3></div>
+      <div id="cotas"></div>
+    </section>
+    <section>
+      <div class="uso-cab"><h3>Campanha</h3></div>
+      <div id="totais" class="totais"></div>
+    </section>
+    <section class="secao-log">
+      <div class="uso-cab">
+        <h3>Retornos do modelo</h3>
+        <label class="so-falhas"><input type="checkbox" id="log-falhas"> só falhas</label>
+      </div>
+      <div id="log-eventos" class="log-eventos"></div>
+    </section>
+  </div>
+
+  <div id="aviso-orfao" class="aviso" hidden>
+    <span>Há um turno que ficou pela metade — provavelmente uma queda no meio da resposta.</span>
+    <button id="btn-descartar">descartar</button>
+  </div>
+
+  <main id="timeline"></main>
+
+  <div id="docs-painel" class="painel" hidden>
+    <div class="painel-topo">
+      <strong id="doc-titulo">Documentos</strong>
+      <span id="docs-status" class="doc-status"></span>
+      <button id="btn-salvar-doc" class="salvar" hidden>salvar</button>
+      <button id="btn-editar-doc" class="ghost">editar</button>
+      <button id="btn-fechar-docs" class="ghost">fechar</button>
+    </div>
+    <div class="painel-corpo">
+      <nav id="docs-abas" class="lateral"></nav>
+      <div class="painel-conteudo">
+        <div id="doc-visor" class="doc-render"></div>
+        <textarea id="doc-editor" spellcheck="false" hidden></textarea>
+        <div id="galeria" class="galeria" hidden></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <button id="btn-topo-turno" class="topo-turno" hidden
+            title="ir para o começo do último turno">&uarr;</button>
+    <div id="controles-rodada" class="controles-rodada" hidden>
+      <span class="rotulo">última rodada:</span>
+      <button id="btn-refazer" class="ghost" title="descarta a resposta do mestre e joga a mesma ação de novo">refazer</button>
+      <button id="btn-apagar-rodada" class="ghost" title="apaga a rodada e devolve o seu texto para a caixa">apagar</button>
+    </div>
+    <div class="linha-acao">
+      <textarea id="acao" rows="3" placeholder="O que você faz? (Enter envia · Shift+Enter quebra linha)"></textarea>
+      <button id="btn-enviar">enviar</button>
+      <button id="btn-parar" class="parar" hidden>parar</button>
+    </div>
+  </footer>
+</div>
+
+<script src="/static/markdown.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>

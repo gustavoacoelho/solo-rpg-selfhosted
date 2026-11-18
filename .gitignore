@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+campanha/
+*.db
+*.db-wal
+*.db-shm
+.venv/
+
+# A campanha e os arquivos de importação ficam fora do git.
+dados/
+*.bak
+.pytest_cache/

@@ -1,0 +1,15 @@
+services:
+  solo-rpg:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      CAMPAIGN_DIR: /app/campanha
+    volumes:
+      # A campanha fica num volume: sobrevive a rebuild e entra no backup.
+      - campanha:/app/campanha
+    ports:
+      - "${PORTA_HOST:-8000}:8000"
+
+volumes:
+  campanha:

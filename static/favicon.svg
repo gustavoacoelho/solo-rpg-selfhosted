@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- d20 visto de frente: o contorno e um hexagono, a face voltada para o
+       observador e o triangulo central, e as tres faces vizinhas sao os
+       trapezios entre ele e as bordas.
+       Cores da Noch: periwinkle no corpo, ciano nas faces de baixo. -->
+  <rect width="100" height="100" rx="20" fill="#1b1a22"/>
+  <g transform="translate(50 51) scale(0.86) translate(-50 -50)">
+    <!-- corpo -->
+    <polygon points="50,6 91,29 91,71 50,94 9,71 9,29" fill="#c3c0ff"/>
+    <!-- faces inferiores em ciano, para dar volume sem escurecer -->
+    <polygon points="50,94 9,71 26,64 50,73 74,64 91,71" fill="#9dfef2"/>
+    <!-- face frontal (a do 20) -->
+    <polygon points="50,22 74,64 26,64" fill="#14131a" opacity=".26"/>
+    <!-- arestas -->
+    <g fill="none" stroke="#14131a" stroke-width="3.4" stroke-linejoin="round">
+      <polygon points="50,6 91,29 91,71 50,94 9,71 9,29"/>
+      <polygon points="50,22 74,64 26,64"/>
+      <path d="M50,22 L50,6 M74,64 L91,29 M26,64 L9,29 M26,64 L50,73 L74,64 M50,73 L50,94 M9,71 L26,64 M91,71 L74,64"/>
+    </g>
+  </g>
+</svg>
